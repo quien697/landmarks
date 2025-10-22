@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CategoryRow: View {
-  var categoryName: String
-  var items: [Landmark]
+  let categoryName: String
+  let items: [Landmark]
   
   var body: some View {
     VStack(alignment: .leading) {
@@ -28,14 +28,14 @@ struct CategoryRow: View {
             }
           }
         }
-      }
+      } // ScrollView
       .frame(height: 185)
-    }
+    } // VStack
   }
 }
 
 #Preview {
-  let landmarks = ModelData().landmarks
+  let landmarks = LandmarkViewModel().landmarks
   
   return CategoryRow(
     categoryName: landmarks[0].category.rawValue,

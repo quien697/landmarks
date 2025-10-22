@@ -58,7 +58,7 @@ struct HikeView: View {
 
 #Preview {
   VStack {
-    HikeView(hike: ModelData().hikes[0])
+    HikeView(hike: LandmarkViewModel().hikes[0])
       .padding()
     Spacer()
   }

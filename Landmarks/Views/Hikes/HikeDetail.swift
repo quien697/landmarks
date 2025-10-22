@@ -41,5 +41,5 @@ struct HikeDetail: View {
 }
 
 #Preview {
-  HikeDetail(hike: ModelData().hikes[0])
+  HikeDetail(hike: LandmarkViewModel().hikes[0])
 }

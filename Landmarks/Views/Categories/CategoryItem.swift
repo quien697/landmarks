@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryItem: View {
-  var landmark: Landmark
+  let landmark: Landmark
   
   var body: some View {
     VStack(alignment: .leading) {
@@ -17,14 +17,15 @@ struct CategoryItem: View {
         .resizable()
         .frame(width: 155, height: 155)
         .cornerRadius(5)
+      
       Text(landmark.name)
         .foregroundStyle(.primary)
         .font(.caption)
-    }
+    } // VStack
     .padding(.leading, 15)
   }
 }
 
 #Preview {
-  CategoryItem(landmark: ModelData().landmarks[0])
+  CategoryItem(landmark: LandmarkViewModel().landmarks[0])
 }

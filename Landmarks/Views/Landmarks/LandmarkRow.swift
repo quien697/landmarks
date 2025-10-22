@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct LandmarkRow: View {
-  var landmark: Landmark
+  let landmark: Landmark
   
   var body: some View {
     HStack {
       landmark.image
         .resizable()
         .frame(width: 50, height: 50)
+      
       Text(landmark.name)
       
       Spacer()
@@ -28,11 +29,11 @@ struct LandmarkRow: View {
 }
 
 #Preview {
-  let landmarks = ModelData().landmarks
+  let landmarks = LandmarkViewModel().landmarks
   return LandmarkRow(landmark: landmarks[0])
 }
 
 #Preview {
-  let landmarks = ModelData().landmarks
+  let landmarks = LandmarkViewModel().landmarks
   return LandmarkRow(landmark: landmarks[1])
 }

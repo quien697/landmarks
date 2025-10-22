@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeatureCard: View {
-  var landmark: Landmark
+  let landmark: Landmark
   
   var body: some View {
     landmark.featureImage?
@@ -20,7 +20,7 @@ struct FeatureCard: View {
 }
 
 struct TextOverlay: View {
-  var landmark: Landmark
+  let landmark: Landmark
   
   var gradient: LinearGradient {
     .linearGradient(
@@ -45,6 +45,6 @@ struct TextOverlay: View {
 }
 
 #Preview {
-  FeatureCard(landmark: ModelData().features[0])
+  FeatureCard(landmark: LandmarkViewModel().features[0])
     .aspectRatio(3 / 2, contentMode: .fit)
 }

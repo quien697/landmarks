@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileHost: View {
   @Environment(\.editMode) var editMode
-  @Environment(ModelData.self) var modelData
+  @Environment(LandmarkViewModel.self) var viewModel
   @State private var draftProfile = Profile.default
   
   var body: some View {
@@ -17,31 +17,31 @@ struct ProfileHost: View {
       HStack {
         if editMode?.wrappedValue == .active {
           Button("Cancel", role: .cancel) {
-            draftProfile = modelData.profile
+            draftProfile = viewModel.profile
             editMode?.animation().wrappedValue = .inactive
           }
         }
         Spacer()
         EditButton()
-      }
+      } // HStack
       
       if editMode?.wrappedValue == .inactive {
-        ProfileSummary(profile: modelData.profile)
+        ProfileSummary(profile: viewModel.profile)
       } else {
         ProfileEditor(profile: $draftProfile)
           .onAppear {
-            draftProfile = modelData.profile
+            draftProfile = viewModel.profile
           }
           .onDisappear {
-            modelData.profile = draftProfile
+            viewModel.profile = draftProfile
           }
       }
-    }
+    } // VStack
     .padding()
   }
 }
 
 #Preview {
   ProfileHost()
-    .environment(ModelData())
+    .environment(LandmarkViewModel())
 }

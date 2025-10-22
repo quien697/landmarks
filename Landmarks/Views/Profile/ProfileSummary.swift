@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProfileSummary: View {
-  @Environment(ModelData.self) var modelData
-  var profile: Profile
+  @Environment(LandmarkViewModel.self) var viewModel
+  let profile: Profile
   
   var body: some View {
     ScrollView {
@@ -49,7 +49,7 @@ struct ProfileSummary: View {
           Text("Recent Hikes")
             .font(.headline)
           
-          HikeView(hike: modelData.hikes[0])
+          HikeView(hike: viewModel.hikes[0])
         }
       } // VStack
       .padding()
@@ -59,5 +59,5 @@ struct ProfileSummary: View {
 
 #Preview {
   ProfileSummary(profile: Profile.default)
-    .environment(ModelData())
+    .environment(LandmarkViewModel())
 }

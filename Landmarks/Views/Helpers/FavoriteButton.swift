@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct FavoriteButton: View {
-  @Binding var isSet: Bool
+  let isSet: Bool
+  let onToggle: () -> Void
   
   var body: some View {
     Button {
-      isSet.toggle()
+      onToggle()
     } label: {
       Label("Toggle Favorite", systemImage: isSet ? "star.fill" : "star")
         .labelStyle(.iconOnly)
@@ -22,5 +23,8 @@ struct FavoriteButton: View {
 }
 
 #Preview {
-  FavoriteButton(isSet: .constant(true))
+  FavoriteButton(
+    isSet: true,
+    onToggle: { print("Toggled") }
+  )
 }
