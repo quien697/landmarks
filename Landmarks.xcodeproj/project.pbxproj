@@ -73,6 +73,28 @@
 		60D2C03D2EA7CF0C000A6C4A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		60C1523D2EAB69A6002CD1CD /* Exceptions for "Landmarks" folder in "WatchLandmarks Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				LandmarksApp.swift,
+				Models/Hike.swift,
+				Models/Landmark.swift,
+				Models/Profile.swift,
+				Resources/hikeData.json,
+				Resources/landmarkData.json,
+				Services/WebService.swift,
+				ViewModels/LandmarkViewModel.swift,
+				Views/Helpers/CircleImage.swift,
+				Views/Helpers/MapView.swift,
+				Views/Landmarks/LandmarkList.swift,
+				Views/Landmarks/LandmarkRow.swift,
+			);
+			target = 60C1520A2EAB673C002CD1CD /* WatchLandmarks Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		60C1520C2EAB673C002CD1CD /* WatchLandmarks Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -91,6 +113,9 @@
 		};
 		60D2BFFB2EA7CD5A000A6C4A /* Landmarks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				60C1523D2EAB69A6002CD1CD /* Exceptions for "Landmarks" folder in "WatchLandmarks Watch App" target */,
+			);
 			path = Landmarks;
 			sourceTree = "<group>";
 		};
