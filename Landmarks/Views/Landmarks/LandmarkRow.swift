@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct LandmarkRow: View {
-  let landmark: Landmark
+  var landmark: Landmark
   
   var body: some View {
     HStack {
       landmark.image
         .resizable()
         .frame(width: 50, height: 50)
+        .cornerRadius(5)
       
-      Text(landmark.name)
+      VStack(alignment: .leading) {
+        Text(landmark.name)
+          .bold()
+        
+        #if !os(watchOS)
+        Text(landmark.park)
+          .font(.caption)
+          .foregroundStyle(.secondary)
+        #endif
+      } // VStack
       
       Spacer()
       
@@ -24,16 +34,16 @@ struct LandmarkRow: View {
         Image(systemName: "star.fill")
           .foregroundStyle(.yellow)
       }
-    }
+    } // HStack
+    .padding(.vertical, 4)
   }
 }
 
 #Preview {
   let landmarks = LandmarkViewModel().landmarks
-  return LandmarkRow(landmark: landmarks[0])
-}
-
-#Preview {
-  let landmarks = LandmarkViewModel().landmarks
-  return LandmarkRow(landmark: landmarks[1])
+  
+  return Group {
+    LandmarkRow(landmark: landmarks[0])
+    LandmarkRow(landmark: landmarks[1])
+  }
 }
