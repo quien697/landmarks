@@ -17,9 +17,11 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
   let landmarkIndexKey = "landmarkIndex"
   
   override var body: NotificationView {
-    NotificationView(title: title,
-                     message: message,
-                     landmark: landmark)
+    NotificationView(
+      title: title,
+      message: message,
+      landmark: landmark
+    )
   }
   
   override func didReceive(_ notification: UNNotification) {

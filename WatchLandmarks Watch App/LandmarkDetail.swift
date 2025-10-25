@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
-  @Environment(LandmarkViewModel.self) var viewModel
-  var landmark: Landmark
-  
-  var landmarkIndex: Int {
-    viewModel.landmarks.firstIndex(where: { $0.id == landmark.id })!
-  }
-  
+  @Environment(LandmarkViewModel.self) private var viewModel
+  let landmark: Landmark
+
   var body: some View {
     @Bindable var viewModel = viewModel
     
@@ -27,8 +23,10 @@ struct LandmarkDetail: View {
           .font(.headline)
           .lineLimit(0)
         
-        Toggle(isOn: $viewModel.landmarks[landmarkIndex].isFavorite) {
-          Text("Favorite")
+        if let index = viewModel.index(of: landmark) {
+          Toggle(isOn: $viewModel.landmarks[index].isFavorite) {
+            Text("Favorite")
+          }
         }
         
         Divider()
@@ -45,15 +43,16 @@ struct LandmarkDetail: View {
         
         MapView(coordinate: landmark.locationCoordinate)
           .scaledToFit()
-      }
+      } // VStack
       .padding(16)
-    }
+    } // ScrollView
     .navigationTitle("Landmarks")
   }
 }
 
 #Preview {
   let viewModel = LandmarkViewModel()
+  
   return LandmarkDetail(landmark: viewModel.landmarks[0])
     .environment(viewModel)
 }
