@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileSummary: View {
-  @Environment(LandmarkViewModel.self) var viewModel
+  @Environment(LandmarkViewModel.self) private var viewModel
   let profile: Profile
   
   var body: some View {

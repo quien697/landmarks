@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryHome: View {
-  @Environment(LandmarkViewModel.self) var viewModel
+  @Environment(LandmarkViewModel.self) private var viewModel
   @State private var isShowProfile: Bool = false
   
   var body: some View {

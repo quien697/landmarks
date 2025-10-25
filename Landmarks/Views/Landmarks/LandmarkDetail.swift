@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
-  @Environment(LandmarkViewModel.self) var viewModel
+  @Environment(LandmarkViewModel.self) private var viewModel
   var landmark: Landmark
   
   var body: some View {

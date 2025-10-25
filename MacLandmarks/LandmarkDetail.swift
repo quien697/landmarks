@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct LandmarkDetail: View {
-  @Environment(LandmarkViewModel.self) var viewModel
+  @Environment(LandmarkViewModel.self) private var viewModel
   var landmark: Landmark
   
   var landmarkIndex: Int {
@@ -17,8 +17,6 @@ struct LandmarkDetail: View {
   }
   
   var body: some View {
-    @Bindable var viewModel = viewModel
-    
     ScrollView {
       ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
         MapView(coordinate: landmark.locationCoordinate)

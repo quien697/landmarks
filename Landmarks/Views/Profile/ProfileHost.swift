@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProfileHost: View {
-  @Environment(\.editMode) var editMode
-  @Environment(LandmarkViewModel.self) var viewModel
+  @Environment(\.editMode) private var editMode
+  @Environment(LandmarkViewModel.self) private var viewModel
   @State private var draftProfile: Profile = .default
   
   var body: some View {
