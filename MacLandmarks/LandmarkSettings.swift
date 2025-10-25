@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct LandmarkSettings: View {
-  @AppStorage("MapView.zoom")
-  private var zoom: MapView.Zoom = .medium
+  @AppStorage("MapView.zoom") private var zoom: MapZoom = .medium
   
   var body: some View {
     Form {
       Picker("Map Zoom:", selection: $zoom) {
-        ForEach(MapView.Zoom.allCases) { level in
+        ForEach(MapZoom.allCases) { level in
           Text(level.rawValue)
         }
       }
