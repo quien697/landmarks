@@ -8,68 +8,65 @@
 import SwiftUI
 
 struct LandmarkList: View {
-  @Environment(LandmarkViewModel.self) var viewModel
-  @State private var showFavoritesOnly = false
-  @State private var filter = FilterCategory.all
-  
-  enum FilterCategory: String, CaseIterable, Identifiable {
-    case all = "All"
-    case lakes = "Lakes"
-    case rivers = "Rivers"
-    case mountains = "Mountains"
-    
-    var id: FilterCategory { self }
-  }
-  
-  var filteredLandmarks: [Landmark] {
-    viewModel.landmarks.filter { landmark in
-      (!showFavoritesOnly || landmark.isFavorite)
-      && (filter == .all || filter.rawValue == landmark.category.rawValue)
-    }
-  }
-  
-  var title: String {
-    let title = filter == .all ? "Landmarks" : filter.rawValue
-    return showFavoritesOnly ? "Favorite \(title)" : title
+  @Environment(LandmarkViewModel.self) private var viewModel
+  @State private var isShowFavoritesOnly: Bool = false
+  @State private var selectedCategory: FilterCategory = .all
+  @State private var selectedLandmark: Landmark?
+  var landmarksTitle: String {
+    let title = selectedCategory == .all ? "Landmarks" : selectedCategory.rawValue
+    return "Favorite \(isShowFavoritesOnly ? title : "")"
   }
   
   var body: some View {
-    @Bindable var viewModel = viewModel
-    
     NavigationSplitView {
-      List() {
-        ForEach(filteredLandmarks) { landmark in
-          NavigationLink {
-            LandmarkDetail(landmark: landmark)
-          } label: {
-            LandmarkRow(landmark: landmark)
-          }
+      List(
+        viewModel.filteredLandmarks,
+        selection: $selectedLandmark
+      ) { landmark in
+        NavigationLink(value: landmark) {
+          LandmarkRow(landmark: landmark)
         }
-      }
-      .animation(.default, value: filteredLandmarks)
-      .navigationTitle(title)
+      } // List
+      .animation(.default, value: viewModel.filteredLandmarks)
+      .navigationTitle(landmarksTitle)
       .frame(minWidth: 300)
       .toolbar {
         ToolbarItem {
           Menu {
-            Picker("Category", selection: $filter) {
+            Picker("Category", selection: $selectedCategory) {
               ForEach(FilterCategory.allCases) { category in
                 Text(category.rawValue).tag(category)
               }
             }
             .pickerStyle(.inline)
+            .onChange(of: selectedCategory) {
+              viewModel.filterLandmarks(
+                for: selectedCategory,
+                isShowFavoritesOnly: isShowFavoritesOnly
+              )
+            }
             
-            Toggle(isOn: $showFavoritesOnly) {
+            Toggle(isOn: $isShowFavoritesOnly) {
               Label("Favorites only", systemImage: "star.fill")
+            }
+            .onChange(of: isShowFavoritesOnly) {
+              viewModel.filterLandmarks(
+                for: selectedCategory,
+                isShowFavoritesOnly: isShowFavoritesOnly
+              )
             }
           } label: {
             Label("Filter", systemImage: "slider.horizontal.3")
-          }
-        }
-      }
+          } // Menu
+        } // ToolbarItem
+      } // toolbar
     } detail: {
-      Text("Select a Landmark")
-    }
+      if let landmark = selectedLandmark {
+        LandmarkDetail(landmark: landmark)
+      } else {
+        Text("Select a Landmark")
+      }
+    } // NavigationSplitView
   }
 }
 

@@ -12,8 +12,9 @@ class LandmarkViewModel {
   private let webService = WebService()
   
   var landmarks: [Landmark] = []
+  var filteredLandmarks: [Landmark] = []
   var hikes: [Hike] = []
-  var profile = Profile.default
+  var profile: Profile = .default
   var features: [Landmark] {
     landmarks.filter { $0.isFeatured }
   }
@@ -31,10 +32,25 @@ class LandmarkViewModel {
   private func loadData() {
     if let data: [Landmark] = webService.loadLocalData(filename: "landmarkData") {
       landmarks = data
+      filteredLandmarks = landmarks
     }
     
     if let data: [Hike] = webService.loadLocalData(filename: "hikeData") {
       hikes = data
+    }
+  }
+  
+  func filterLandmarks(for category: FilterCategory, isShowFavoritesOnly: Bool) {
+    filteredLandmarks = landmarks
+    
+    if isShowFavoritesOnly {
+      filteredLandmarks = filteredLandmarks.filter { $0.isFavorite }
+    }
+    
+    if category != .all {
+      filteredLandmarks = filteredLandmarks.filter {
+        $0.category.rawValue == category.rawValue
+      }
     }
   }
   

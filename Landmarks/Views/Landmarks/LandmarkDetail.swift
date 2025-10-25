@@ -44,6 +44,7 @@ struct LandmarkDetail: View {
         
         Text("About \(landmark.name)")
           .font(.title2)
+        
         Text(landmark.description)
       } // VStack
       .padding()
@@ -55,6 +56,7 @@ struct LandmarkDetail: View {
 
 #Preview {
   let viewModel = LandmarkViewModel()
+  
   return LandmarkDetail(landmark: viewModel.landmarks[0])
     .environment(viewModel)
 }

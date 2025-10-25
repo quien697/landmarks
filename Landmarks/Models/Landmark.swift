@@ -49,3 +49,13 @@ struct Landmark: Hashable, Codable, Identifiable {
     var longitude: Double
   }
 }
+
+// MARK: - Filter Category (for UI filtering)
+enum FilterCategory: String, CaseIterable, Identifiable {
+  case all = "All"
+  case lakes = "Lakes"
+  case rivers = "Rivers"
+  case mountains = "Mountains"
+  
+  var id: FilterCategory { self }
+}
