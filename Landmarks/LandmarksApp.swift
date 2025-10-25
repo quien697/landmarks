@@ -16,7 +16,6 @@ struct LandmarksApp: App {
       ContentView()
         .environment(viewModel)
     }
-    
     #if !os(watchOS)
     .commands {
       LandmarkCommands()

@@ -20,7 +20,9 @@ struct ProfileEditor: View {
     List {
       HStack {
         Text("Username")
+        
         Spacer()
+        
         TextField("Username", text: $profile.username)
           .foregroundStyle(.secondary)
           .multilineTextAlignment(.trailing)
@@ -36,7 +38,11 @@ struct ProfileEditor: View {
         }
       }
       
-      DatePicker(selection: $profile.goalDate, in: dateRange, displayedComponents: .date) {
+      DatePicker(
+        selection: $profile.goalDate,
+        in: dateRange,
+        displayedComponents: .date
+      ) {
         Text("Goal Date")
       }
     } // List

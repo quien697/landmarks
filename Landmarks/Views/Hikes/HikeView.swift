@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension AnyTransition {
+  
   static var moveAndFade: AnyTransition {
     .asymmetric(
       insertion: .move(edge: .trailing).combined(with: .opacity),
@@ -17,8 +18,8 @@ extension AnyTransition {
 }
 
 struct HikeView: View {
-  var hike: Hike
-  @State private var showDetail = false
+  @State private var isShowDetail: Bool = false
+  let hike: Hike
   
   var body: some View {
     VStack {
@@ -36,19 +37,19 @@ struct HikeView: View {
         
         Button {
           withAnimation {
-            showDetail.toggle()
+            isShowDetail.toggle()
           }
         } label: {
           Label("Graph", systemImage: "chevron.right.circle")
             .labelStyle(.iconOnly)
             .imageScale(.large)
-            .rotationEffect(.degrees(showDetail ? 90 : 0))
-            .scaleEffect(showDetail ? 1.5 : 1)
+            .rotationEffect(.degrees(isShowDetail ? 90 : 0))
+            .scaleEffect(isShowDetail ? 1.5 : 1)
             .padding()
         }
       }
       
-      if showDetail {
+      if isShowDetail {
         HikeDetail(hike: hike)
           .transition(.moveAndFade)
       }
@@ -60,6 +61,7 @@ struct HikeView: View {
   VStack {
     HikeView(hike: LandmarkViewModel().hikes[0])
       .padding()
+    
     Spacer()
   }
 }

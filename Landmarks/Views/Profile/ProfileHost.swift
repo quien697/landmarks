@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileHost: View {
   @Environment(\.editMode) var editMode
   @Environment(LandmarkViewModel.self) var viewModel
-  @State private var draftProfile = Profile.default
+  @State private var draftProfile: Profile = .default
   
   var body: some View {
     VStack(alignment: .leading, spacing: 20) {
@@ -21,7 +21,9 @@ struct ProfileHost: View {
             editMode?.animation().wrappedValue = .inactive
           }
         }
+        
         Spacer()
+        
         EditButton()
       } // HStack
       

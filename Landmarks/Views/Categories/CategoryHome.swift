@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryHome: View {
   @Environment(LandmarkViewModel.self) var viewModel
-  @State private var isShowProfile = false
+  @State private var isShowProfile: Bool = false
   
   var body: some View {
     NavigationSplitView {
