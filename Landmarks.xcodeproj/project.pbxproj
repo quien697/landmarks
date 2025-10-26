@@ -91,6 +91,33 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		604A2C5F2EAE61A2005A037E /* Exceptions for "Landmarks" folder in "Landmarks" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Screenshots/landmark-detail.png",
+				"Screenshots/landmark-featured.png",
+				"Screenshots/landmark-list-filter.png",
+				"Screenshots/landmark-list.png",
+				"Screenshots/landmark-profile-edit.png",
+				"Screenshots/landmark-profile.png",
+			);
+			target = 60D2BFF82EA7CD5A000A6C4A /* Landmarks */;
+		};
+		604A2C632EAE61AC005A037E /* Exceptions for "WatchLandmarks Watch App" folder in "WatchLandmarks Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Screenshots/watch-landmark-detail.png",
+				"Screenshots/watch-landmark-list.png",
+			);
+			target = 60C1520A2EAB673C002CD1CD /* WatchLandmarks Watch App */;
+		};
+		604A2C642EAE61B1005A037E /* Exceptions for "MacLandmarks" folder in "MacLandmarks" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Screenshots/mac-landmark-list.png",
+			);
+			target = 60C152D42EAB8326002CD1CD /* MacLandmarks */;
+		};
 		60C1523D2EAB69A6002CD1CD /* Exceptions for "Landmarks" folder in "WatchLandmarks Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -136,6 +163,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		60C1520C2EAB673C002CD1CD /* WatchLandmarks Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				604A2C632EAE61AC005A037E /* Exceptions for "WatchLandmarks Watch App" folder in "WatchLandmarks Watch App" target */,
+			);
 			path = "WatchLandmarks Watch App";
 			sourceTree = "<group>";
 		};
@@ -151,6 +181,9 @@
 		};
 		60C152D62EAB8326002CD1CD /* MacLandmarks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				604A2C642EAE61B1005A037E /* Exceptions for "MacLandmarks" folder in "MacLandmarks" target */,
+			);
 			path = MacLandmarks;
 			sourceTree = "<group>";
 		};
@@ -167,6 +200,7 @@
 		60D2BFFB2EA7CD5A000A6C4A /* Landmarks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				604A2C5F2EAE61A2005A037E /* Exceptions for "Landmarks" folder in "Landmarks" target */,
 				60C1523D2EAB69A6002CD1CD /* Exceptions for "Landmarks" folder in "WatchLandmarks Watch App" target */,
 				60C154252EABAEF9002CD1CD /* Exceptions for "Landmarks" folder in "MacLandmarks" target */,
 			);

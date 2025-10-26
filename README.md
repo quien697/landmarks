@@ -47,10 +47,7 @@ A multi-platform SwiftUI app called **Landmarks**, demonstrating how to build, s
 
 ## 🔮 Future Improvements
 
-1. **Fix navigation issue** when tapping an item to open the detail view on iOS.
-   - Likely caused by NavigationSplitView not being fully supported on iOS (works on macOS).
-2. **Add UI tests** for all major views to ensure navigation, data flow, and interactions work correctly.
-3. **Refactor logic** out of SwiftUI views to fully adopt the MVVM architecture pattern for better maintainability.
+1. **Add UI tests** for all major views to ensure navigation, data flow, and interactions work correctly.
 
 
 
@@ -77,7 +74,11 @@ The app follows the **MVVM (Model–View–ViewModel)** design pattern, separati
 
 ## 📸 Screenshots
 
+<img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-featured.png" alt="landmark-featured" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-list.png" alt="landmark-list" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-list-filter.png" alt="landmark-list-filter" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-detail.png" alt="landmark-detail" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-profile.png" alt="landmark-profile" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-profile-edit.png" alt="landmark-profile-edit" style="zoom:15%;" /> 
 
+<img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/WatchLandmarks Watch App/Screenshots/watch-landmark-list.png" alt="watch-landmark-list" style="zoom:50%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/WatchLandmarks Watch App/Screenshots/watch-landmark-detail.png" alt="watch-landmark-detail" style="zoom:50%;" /> 
+
+<img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/MacLandmarks/Screenshots/mac-landmark-list.png" alt="mac-landmark-list" style="zoom:100%;" />
 
 
 
