@@ -12,8 +12,6 @@ struct LandmarkDetail: View {
   let landmark: Landmark
   
   var body: some View {
-    @Bindable var viewModel = viewModel
-    
     ScrollView {
       MapView(coordinate: landmark.locationCoordinate)
         .frame(height: 300)
@@ -26,9 +24,9 @@ struct LandmarkDetail: View {
         HStack {
           Text(landmark.name)
             .font(.title)
-
-          if let index = viewModel.index(of: landmark) {
-            FavoriteButton(isSet: $viewModel.filteredLandmarks[index].isFavorite)
+          
+          if let isFavorate = viewModel.isFavoriteBinding(for: landmark) {
+            FavoriteButton(isSet: isFavorate)
           }
         } // HStack
         

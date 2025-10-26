@@ -9,15 +9,16 @@ import SwiftUI
 
 struct LandmarkList: View {
   @Environment(LandmarkViewModel.self) private var viewModel
-  @State private var isShowFavoritesOnly: Bool = false
-  @State private var selectedCategory: FilterCategory = .all
   @State private var selectedLandmark: Landmark?
+  
   var landmarksTitle: String {
-    let title = selectedCategory == .all ? "Landmarks" : selectedCategory.rawValue
-    return "Favorite \(isShowFavoritesOnly ? title : "")"
+    let title = viewModel.selectedCategory == .all ? "Landmarks" : viewModel.selectedCategory.rawValue
+    return "\(viewModel.isShowFavoritesOnly ? "Favorite " : "")\(title)"
   }
   
   var body: some View {
+    @Bindable var viewModel = viewModel
+    
     NavigationSplitView {
       List(
         viewModel.filteredLandmarks,
@@ -33,27 +34,15 @@ struct LandmarkList: View {
       .toolbar {
         ToolbarItem {
           Menu {
-            Picker("Category", selection: $selectedCategory) {
+            Picker("Category", selection: $viewModel.selectedCategory) {
               ForEach(FilterCategory.allCases) { category in
                 Text(category.rawValue).tag(category)
               }
             }
             .pickerStyle(.inline)
-            .onChange(of: selectedCategory) {
-              viewModel.filterLandmarks(
-                for: selectedCategory,
-                isShowFavoritesOnly: isShowFavoritesOnly
-              )
-            }
             
-            Toggle(isOn: $isShowFavoritesOnly) {
+            Toggle(isOn: $viewModel.isShowFavoritesOnly) {
               Label("Favorites only", systemImage: "star.fill")
-            }
-            .onChange(of: isShowFavoritesOnly) {
-              viewModel.filterLandmarks(
-                for: selectedCategory,
-                isShowFavoritesOnly: isShowFavoritesOnly
-              )
             }
           } label: {
             Label("Filter", systemImage: "slider.horizontal.3")

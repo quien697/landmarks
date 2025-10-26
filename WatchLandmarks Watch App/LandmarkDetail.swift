@@ -23,8 +23,8 @@ struct LandmarkDetail: View {
           .font(.headline)
           .lineLimit(0)
         
-        if let index = viewModel.index(of: landmark) {
-          Toggle(isOn: $viewModel.filteredLandmarks[index].isFavorite) {
+        if let isFavorate = viewModel.isFavoriteBinding(for: landmark) {
+          Toggle(isOn: isFavorate) {
             Text("Favorite")
           }
         }

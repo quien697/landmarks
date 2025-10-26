@@ -42,11 +42,9 @@ struct LandmarkDetail: View {
               Text(landmark.name)
                 .font(.title)
               
-              if let index = viewModel.index(of: landmark) {
-                FavoriteButton(isSet: $viewModel.filteredLandmarks[index].isFavorite)
+              if let isFavorate = viewModel.isFavoriteBinding(for: landmark) {
+                FavoriteButton(isSet: isFavorate)
               }
-            
-              
             }
             
             VStack(alignment: .leading) {

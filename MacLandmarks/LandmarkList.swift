@@ -76,7 +76,7 @@ struct LandmarkList: View {
     } detail: {
       Text("Select a Landmark")
     }
-    .focusedValue(\.selectedLandmark, $viewModel.filteredLandmarks[index ?? 0])
+//    .focusedValue(\.selectedLandmark, $viewModel.filteredLandmarks[index ?? 0])
   }
 }
 
