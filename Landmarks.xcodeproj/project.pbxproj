@@ -126,6 +126,7 @@
 				Views/Helpers/CircleImage.swift,
 				Views/Helpers/FavoriteButton.swift,
 				Views/Helpers/MapView.swift,
+				Views/Landmarks/LandmarkList.swift,
 				Views/Landmarks/LandmarkRow.swift,
 			);
 			target = 60C152D42EAB8326002CD1CD /* MacLandmarks */;

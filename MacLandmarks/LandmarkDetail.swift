@@ -10,15 +10,13 @@ import MapKit
 
 struct LandmarkDetail: View {
   @Environment(LandmarkViewModel.self) private var viewModel
-  var landmark: Landmark
+  @Binding var landmark: Landmark
   
   var landmarkIndex: Int {
     viewModel.filteredLandmarks.firstIndex(where: { $0.id == landmark.id })!
   }
   
   var body: some View {
-    @Bindable var viewModel = viewModel
-    
     ScrollView {
       ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
         MapView(coordinate: landmark.locationCoordinate)
@@ -42,9 +40,7 @@ struct LandmarkDetail: View {
               Text(landmark.name)
                 .font(.title)
               
-              if let isFavorate = viewModel.isFavoriteBinding(for: landmark) {
-                FavoriteButton(isSet: isFavorate)
-              }
+              FavoriteButton(isSet: $landmark.isFavorite)
             }
             
             VStack(alignment: .leading) {
@@ -72,7 +68,10 @@ struct LandmarkDetail: View {
 
 #Preview {
   let viewModel = LandmarkViewModel()
-  return LandmarkDetail(landmark: viewModel.filteredLandmarks[0])
-    .environment(viewModel)
-    .frame(width: 850, height: 700)
+  
+  if let bindingLandmark = viewModel.binding(for: viewModel.filteredLandmarks.first!.id) {
+    LandmarkDetail(landmark: bindingLandmark)
+      .environment(viewModel)
+      .frame(width: 850, height: 700)
+  }
 }

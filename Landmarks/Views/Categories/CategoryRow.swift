@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct CategoryRow: View {
+  @Environment(LandmarkViewModel.self) private var viewModel
+  
   let categoryName: String
   let items: [Landmark]
   
   var body: some View {
+    @Bindable var viewModel = viewModel
+    
     VStack(alignment: .leading) {
       Text(categoryName)
         .font(.headline)
@@ -22,7 +26,11 @@ struct CategoryRow: View {
         HStack(alignment: .top, spacing: 0) {
           ForEach(items) { landmark in
             NavigationLink {
-              LandmarkDetail(landmark: landmark)
+              if let bindingLandmark = viewModel.binding(for: landmark.id) {
+                LandmarkDetail(landmark: bindingLandmark)
+              } else {
+                Text("Select a Landmark")
+              }
             } label: {
               CategoryItem(landmark: landmark)
             }
@@ -41,4 +49,5 @@ struct CategoryRow: View {
     categoryName: categories.keys.first!,
     items: categories.first?.value ?? []
   )
+  .environment(LandmarkViewModel())
 }

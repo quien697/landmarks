@@ -48,16 +48,11 @@ class LandmarkViewModel {
     }
   }
   
-  func index(of landmark: Landmark) -> Int? {
-    filteredLandmarks.firstIndex(where: { $0.id == landmark.id })
-  }
-  
-  func isFavoriteBinding(for landmark: Landmark) -> Binding<Bool>? {
-    guard let index = index(of: landmark) else { return nil }
-    
+  func binding(for id: Landmark.ID) -> Binding<Landmark>? {
+    guard let index = landmarks.firstIndex(where: { $0.id == id }) else { return nil }
     return Binding(
-      get: { self.landmarks[index].isFavorite },
-      set: { self.landmarks[index].isFavorite = $0 }
+      get: { self.landmarks[index] },
+      set: { self.landmarks[index] = $0 }
     )
   }
 }

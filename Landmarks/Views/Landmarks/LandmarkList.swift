@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandmarkList: View {
   @Environment(LandmarkViewModel.self) private var viewModel
-  @State private var selectedLandmark: Landmark?
+  @State private var selectedLandmarkID: Landmark.ID?
   
   var landmarksTitle: String {
     let title = viewModel.selectedCategory == .all ? "Landmarks" : viewModel.selectedCategory.rawValue
@@ -22,7 +22,7 @@ struct LandmarkList: View {
     NavigationSplitView {
       List(
         viewModel.filteredLandmarks,
-        selection: $selectedLandmark
+        selection: $selectedLandmarkID
       ) { landmark in
         NavigationLink(value: landmark) {
           LandmarkRow(landmark: landmark)
@@ -50,12 +50,24 @@ struct LandmarkList: View {
         } // ToolbarItem
       } // toolbar
     } detail: {
-      if let landmark = selectedLandmark {
-        LandmarkDetail(landmark: landmark)
+      if let id = selectedLandmarkID,
+         let bindingLandmark = viewModel.binding(for: id) {
+        LandmarkDetail(landmark: bindingLandmark)
       } else {
         Text("Select a Landmark")
       }
     } // NavigationSplitView
+    #if os(macOS)
+    .focusedValue(\.selectedLandmark, bindingForSelectedLandmark)
+    #endif
+  }
+  
+  private var bindingForSelectedLandmark: Binding<Landmark>? {
+    if let id = selectedLandmarkID,
+       let bindingLandmark = viewModel.binding(for: id) {
+      return bindingLandmark
+    }
+    return nil
   }
 }
 

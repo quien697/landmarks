@@ -9,11 +9,9 @@ import SwiftUI
 
 struct LandmarkDetail: View {
   @Environment(LandmarkViewModel.self) private var viewModel
-  let landmark: Landmark
+  @Binding var landmark: Landmark
 
   var body: some View {
-    @Bindable var viewModel = viewModel
-    
     ScrollView {
       VStack {
         CircleImage(image: landmark.image.resizable())
@@ -23,10 +21,8 @@ struct LandmarkDetail: View {
           .font(.headline)
           .lineLimit(0)
         
-        if let isFavorate = viewModel.isFavoriteBinding(for: landmark) {
-          Toggle(isOn: isFavorate) {
-            Text("Favorite")
-          }
+        Toggle(isOn: $landmark.isFavorite) {
+          Text("Favorite")
         }
         
         Divider()
@@ -53,6 +49,9 @@ struct LandmarkDetail: View {
 #Preview {
   let viewModel = LandmarkViewModel()
   
-  return LandmarkDetail(landmark: viewModel.filteredLandmarks[0])
-    .environment(viewModel)
+  if let bindingLandmark = viewModel.binding(for: viewModel.filteredLandmarks.first!.id) {
+    LandmarkDetail(landmark: bindingLandmark)
+      .environment(viewModel)
+      .frame(width: 850, height: 700)
+  }
 }

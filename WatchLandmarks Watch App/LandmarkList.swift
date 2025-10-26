@@ -22,7 +22,11 @@ struct LandmarkList: View {
         
         ForEach(viewModel.filteredLandmarks) { landmark in
           NavigationLink {
-            LandmarkDetail(landmark: landmark)
+            if let bindingLandmark = viewModel.binding(for: landmark.id) {
+              LandmarkDetail(landmark: bindingLandmark)
+            } else {
+              Text("Select a Landmark")
+            }
           } label: {
             LandmarkRow(landmark: landmark)
           }
