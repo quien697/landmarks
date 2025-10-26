@@ -75,13 +75,14 @@ The app follows the **MVVM (Model–View–ViewModel)** design pattern, separati
 ## 📸 Screenshots
 
 <p align="left">
-   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-featured.png?raw=true" alt="Featured Landmark" width="160" />
-   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-list.png?raw=true" alt="Landmark List" width="160" />
-   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-list-filter.png?raw=true" alt="Landmark List Filter" width="160" />
-   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-detail.png?raw=true" alt="Landmark Detail" width="160" />
-   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-profile.png?raw=true" alt="Landmark Profile" width="160" />
-   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-profile-edit.png?raw=true" alt="Landmark Profile Edit" width="160" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-featured.png?raw=true" alt="Featured Landmark" width="150" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-list.png?raw=true" alt="Landmark List" width="150" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-list-filter.png?raw=true" alt="Landmark List Filter" width="150" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-detail.png?raw=true" alt="Landmark Detail" width="150" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-profile.png?raw=true" alt="Landmark Profile" width="150" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-profile-edit.png?raw=true" alt="Landmark Profile Edit" width="150" />
 </p>
+
 
 <p align="left">
    <img src="https://github.com/quien697/landmarks/blob/main/WatchLandmarks%20Watch%20App/Screenshots/watch-landmark-list.png\?raw=true" alt="Watch Landmark List" width="200" />
