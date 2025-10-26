@@ -54,8 +54,7 @@ class LandmarkViewModel {
     }
   }
   
-  func toggleFavorite(for id: Int) {
-    guard let index = landmarks.firstIndex(where: { $0.id == id }) else { return }
-    landmarks[index].isFavorite.toggle()
+  func index(of landmark: Landmark) -> Int? {
+    filteredLandmarks.firstIndex(where: { $0.id == landmark.id })
   }
 }

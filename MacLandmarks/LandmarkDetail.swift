@@ -13,10 +13,12 @@ struct LandmarkDetail: View {
   var landmark: Landmark
   
   var landmarkIndex: Int {
-    viewModel.landmarks.firstIndex(where: { $0.id == landmark.id })!
+    viewModel.filteredLandmarks.firstIndex(where: { $0.id == landmark.id })!
   }
   
   var body: some View {
+    @Bindable var viewModel = viewModel
+    
     ScrollView {
       ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
         MapView(coordinate: landmark.locationCoordinate)
@@ -40,9 +42,11 @@ struct LandmarkDetail: View {
               Text(landmark.name)
                 .font(.title)
               
-              FavoriteButton(isSet: landmark.isFavorite) {
-                viewModel.toggleFavorite(for: landmark.id)
+              if let index = viewModel.index(of: landmark) {
+                FavoriteButton(isSet: $viewModel.filteredLandmarks[index].isFavorite)
               }
+            
+              
             }
             
             VStack(alignment: .leading) {
@@ -70,7 +74,7 @@ struct LandmarkDetail: View {
 
 #Preview {
   let viewModel = LandmarkViewModel()
-  return LandmarkDetail(landmark: viewModel.landmarks[0])
+  return LandmarkDetail(landmark: viewModel.filteredLandmarks[0])
     .environment(viewModel)
     .frame(width: 850, height: 700)
 }

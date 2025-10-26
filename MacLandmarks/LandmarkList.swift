@@ -23,7 +23,7 @@ struct LandmarkList: View {
   }
   
   var filteredLandmarks: [Landmark] {
-    viewModel.landmarks.filter { landmark in
+    viewModel.filteredLandmarks.filter { landmark in
       (!showFavoritesOnly || landmark.isFavorite)
       && (filter == .all || filter.rawValue == landmark.category.rawValue)
     }
@@ -35,7 +35,7 @@ struct LandmarkList: View {
   }
   
   var index: Int? {
-    viewModel.landmarks.firstIndex(where: { $0.id == selectedLandmark?.id })
+    viewModel.filteredLandmarks.firstIndex(where: { $0.id == selectedLandmark?.id })
   }
   
   var body: some View {
@@ -76,7 +76,7 @@ struct LandmarkList: View {
     } detail: {
       Text("Select a Landmark")
     }
-    .focusedValue(\.selectedLandmark, $viewModel.landmarks[index ?? 0])
+    .focusedValue(\.selectedLandmark, $viewModel.filteredLandmarks[index ?? 0])
   }
 }
 
