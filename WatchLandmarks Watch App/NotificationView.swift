@@ -38,5 +38,5 @@ struct NotificationView: View {
   NotificationView(
     title: "Turtle Rock",
     message: "You are within 5 miles of Turtle Rock.",
-    landmark: LandmarkViewModel().landmarks[0])
+    landmark: LandmarkViewModel().filteredLandmarks[0])
 }

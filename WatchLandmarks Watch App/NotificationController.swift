@@ -37,7 +37,7 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
     message = alert?["body"] as? String
     
     if let index = notificationData?[landmarkIndexKey] as? Int {
-      landmark = viewModel.landmarks[index]
+      landmark = viewModel.filteredLandmarks[index]
     }
   }
 }

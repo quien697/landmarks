@@ -40,7 +40,7 @@ struct LandmarkRow: View {
 }
 
 #Preview {
-  let landmarks = LandmarkViewModel().landmarks
+  let landmarks = LandmarkViewModel().filteredLandmarks
   
   return Group {
     LandmarkRow(landmark: landmarks[0])

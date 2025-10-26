@@ -24,7 +24,7 @@ struct LandmarkDetail: View {
           .lineLimit(0)
         
         if let index = viewModel.index(of: landmark) {
-          Toggle(isOn: $viewModel.landmarks[index].isFavorite) {
+          Toggle(isOn: $viewModel.filteredLandmarks[index].isFavorite) {
             Text("Favorite")
           }
         }
@@ -53,6 +53,6 @@ struct LandmarkDetail: View {
 #Preview {
   let viewModel = LandmarkViewModel()
   
-  return LandmarkDetail(landmark: viewModel.landmarks[0])
+  return LandmarkDetail(landmark: viewModel.filteredLandmarks[0])
     .environment(viewModel)
 }

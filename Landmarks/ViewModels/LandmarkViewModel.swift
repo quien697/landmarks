@@ -10,8 +10,7 @@ import SwiftUI
 @Observable
 class LandmarkViewModel {
   private let webService = WebService()
-  
-  var landmarks: [Landmark] = []
+  private(set) var landmarks: [Landmark] = []
   var filteredLandmarks: [Landmark] = []
   var hikes: [Hike] = []
   var profile: Profile = .default
