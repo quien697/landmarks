@@ -27,5 +27,5 @@ struct CategoryItem: View {
 }
 
 #Preview {
-  CategoryItem(landmark: LandmarkViewModel().filteredLandmarks[0])
+  CategoryItem(landmark: LandmarkViewModel().categories.first!.value.first!)
 }

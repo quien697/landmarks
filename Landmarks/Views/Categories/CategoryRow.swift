@@ -35,10 +35,10 @@ struct CategoryRow: View {
 }
 
 #Preview {
-  let landmarks = LandmarkViewModel().filteredLandmarks
+  let categories = LandmarkViewModel().categories
   
   return CategoryRow(
-    categoryName: landmarks[0].category.rawValue,
-    items: Array(landmarks.prefix(4))
+    categoryName: categories.keys.first!,
+    items: categories.first?.value ?? []
   )
 }
