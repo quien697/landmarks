@@ -74,11 +74,23 @@ The app follows the **MVVM (Model–View–ViewModel)** design pattern, separati
 
 ## 📸 Screenshots
 
-<img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-featured.png" alt="landmark-featured" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-list.png" alt="landmark-list" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-list-filter.png" alt="landmark-list-filter" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-detail.png" alt="landmark-detail" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-profile.png" alt="landmark-profile" style="zoom:15%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/Landmarks/Screenshots/landmark-profile-edit.png" alt="landmark-profile-edit" style="zoom:15%;" /> 
+<p align="left">
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-featured.png?raw=true" alt="Featured Landmark" width="160" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-list.png?raw=true" alt="Landmark List" width="160" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-list-filter.png?raw=true" alt="Landmark List Filter" width="160" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-detail.png?raw=true" alt="Landmark Detail" width="160" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-profile.png?raw=true" alt="Landmark Profile" width="160" />
+   <img src="https://github.com/quien697/landmarks/blob/main/Landmarks/Screenshots/landmark-profile-edit.png?raw=true" alt="Landmark Profile Edit" width="160" />
+</p>
 
-<img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/WatchLandmarks Watch App/Screenshots/watch-landmark-list.png" alt="watch-landmark-list" style="zoom:50%;" /> <img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/WatchLandmarks Watch App/Screenshots/watch-landmark-detail.png" alt="watch-landmark-detail" style="zoom:50%;" /> 
+<p align="left">
+   <img src="https://github.com/quien697/landmarks/blob/main/WatchLandmarks%20Watch%20App/Screenshots/watch-landmark-list.png\?raw=true" alt="Watch Landmark List" width="200" />
+   <img src="https://github.com/quien697/landmarks/blob/main/WatchLandmarks%20Watch%20App/Screenshots/watch-landmark-detail.png\?raw=true" alt="Watch Landmark Detail" width="200" />
+</p>
 
-<img src="/Users/quien/Code/Learning/iOS/SwiftUI/Landmarks/MacLandmarks/Screenshots/mac-landmark-list.png" alt="mac-landmark-list" style="zoom:100%;" />
+<p align="left">
+   <img src="https://github.com/quien697/landmarks/blob/main/MacLandmarks/Screenshots/mac-landmark-list.png?raw=true" alt="Mac Landmark List" width="800" />
+</p>
 
 
 
